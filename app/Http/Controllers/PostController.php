@@ -27,8 +27,6 @@ class PostController extends Controller
      }
      
      public function store(Request $request){
-       
-       
         $post = new Post($request->all());
         $fecha=date('Y-m-d');
         $post->fecha=$fecha;
@@ -37,4 +35,11 @@ class PostController extends Controller
             return redirect('/postt');
         }
      }
+     public function edit($post_id){
+
+        $post = Post::find($post_id);
+
+        return View('postt.edit',compact('post'));
+
+    }
 }
