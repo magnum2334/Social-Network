@@ -1,7 +1,9 @@
 { 
- "Dashboard" : "Dashboard",
-    "Posts" : "posts",
-    "Contect":"Contenido",
-       "Date":"fecha"
+ "Dashboard" : "Tablero",
+   "Contents" : "Contenido",
+   "ContentPlaceholder" :  "Escribe aqui tu publicacion...",
+   "DatePlaceholder" :  " Tu fecha de esta publicacion",
+   "Posts" : "Publicaciones",
+   "Send":"Publicar"
 
  }

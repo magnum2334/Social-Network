@@ -1,20 +1,21 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-        <form action="{{ $url }}" method="POST"></form>
+        <form action="{{ $url }}" method="POST">
             @method($method)
             @csrf
         
             <div class="mb-3">
-                <label class="form-label">{{('Contenido')}}</label>
-                <input type="text-area" name="contenido" class="form-control" value="{{isset($Post->Contenido) ? $Post->Contenido : ''}}">
+                <div class="mb-3">
+                <label class="form-label">{{ __('Contents')}}</label>
+                <input type="text-area" name="Contents"  required class="form-control" placeholder="{{ __('contenido')}}">   
+            </div>
+
+       
+            <button type="submit" class="btn btn-primary" >{{ __('Send')}}</button>
                 
-                <label class="form-label">{{('Fecha')}}</label>
-                <input type="date" name="contenido" class="form-control" value="{{isset($Post->Fecha) ? $Post->Fecha : ''}}">
+                </form>
 
-                <input type="submit" value="{{ $Modo=='crear' ? 'Agregar':'Modificar'}}" class=" my-2 btn-lg btn-dark">
-
-               
             </div>
         
         </div>

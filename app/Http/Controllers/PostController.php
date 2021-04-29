@@ -23,6 +23,18 @@ class PostController extends Controller
      
      public function create(){
          $post = new Post();
-         return View('postt.index',compact('post'));
+         return View('postt.create',compact('post'));
+     }
+     
+     public function store(Request $request){
+       
+       
+        $post = new Post($request->all());
+        $fecha=date('Y-m-d');
+        $post->fecha=$fecha;
+        if($post->save()){
+            
+            return redirect('/postt');
+        }
      }
 }

@@ -4,7 +4,6 @@
 
 .floating{
     position: fixed;
-    
     right: 8em;
-    z-index: 100;
+    z-index: 105;
 }

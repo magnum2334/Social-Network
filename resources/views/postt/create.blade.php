@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('contect')
-    @include('postt.form', ['method' => 'POST', 'url' => url('/postt/create'),['Modo'=>'agregar']])
+@section('content')
+    @include('postt.form', ['method' => 'POST', 'url' => url('/postt/create')])
     
 @endsection

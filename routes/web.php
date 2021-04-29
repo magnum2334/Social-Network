@@ -27,5 +27,6 @@ require __DIR__.'/auth.php';
 //------------------------------------------
 //---POSTS----------
 
-Route::get('/Post', [PostController::class, 'index'])->name('postt');
-Route::get('/Post/create', [PostController::class, 'create']);
+Route::get('/postt', [PostController::class, 'index'])->name('postt');
+Route::get('/postt/create', [PostController::class, 'create']);
+Route::post('/postt/create', [PostController::class, 'store']);
