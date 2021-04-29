@@ -13,6 +13,7 @@
             @foreach($posts as $post)
             
             <tr>
+            
             <td>{{$post->Contents}}</td>
             <td>{{$post->Fecha}}</td>
             </tr>
