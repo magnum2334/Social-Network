@@ -4,9 +4,11 @@
     <table class="table table-striped table-white table-hover">
         <thead>
              <tr>
+             <th>Name user</th>
+             <th>Titulo</th>
              <th>Contenido</th>
              <th>Fecha</th>
-             <th> Acciones     <th>
+             <th>Acciones <th>
              </tr>
         
         </thead>
@@ -14,11 +16,13 @@
             @foreach($posts as $post)
             
             <tr>
-            
+            <td>{{$post->user->name}}</td>
+            <td>{{$post->Titulo}}</td>
             <td>{{$post->Contents}}</td>
             <td>{{$post->Fecha}}</td>
-            <td>  <a href="{{url('/postt/edit/'. $post->id)}}" class="btn btn-warning">edit </a> </td>
-            </tr>
+            <td>  <a href="{{url('/postt/edit/'. $post->id)}}" class="btn btn-warning">edit </a> | <a  class="btn btn-danger">Delete  </a> </td> </td>
+        
+             </tr>
             @endforeach
         </tbody>
     

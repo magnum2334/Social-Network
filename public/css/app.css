@@ -32088,11 +32088,21 @@ select {
   --tw-backdrop-sepia: sepia(100%);
 }
 
+/* C */
+
+.card{
+  border-radius: 20px;
+}
+
+/* F */
+
 .floating{
   position: fixed;
   right: 8em;
   z-index: 105;
 }
+
+/* I */
 
 @media (min-width: 640px) {
   .sm\:container {
@@ -187948,3 +187958,4 @@ select {
     --tw-backdrop-sepia: sepia(100%);
   }
 }
+
