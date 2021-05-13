@@ -16,7 +16,7 @@
                         {{ __('inicio') }}
                     </x-nav-link>
                 </div>
-
+                <!-- Navigation  -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('postt')" :active="request()->routeIs('postt')">
                         {{ __('post') }}

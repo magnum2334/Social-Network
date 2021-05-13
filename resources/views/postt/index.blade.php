@@ -20,9 +20,8 @@
             <td>{{$post->Titulo}}</td>
             <td>{{$post->Contents}}</td>
             <td>{{$post->Fecha}}</td>
-            <td>  <a href="{{url('/postt/edit/'. $post->id)}}" class="btn btn-warning">edit </a> | <a  class="btn btn-danger">Delete  </a> </td> </td>
-        
-             </tr>
+            <td>  <a href="{{url('/postt/edit/'. $post->id)}}" class="btn btn-warning">edit </a> | <a href="{{url('/postt/index/'. $post->id)}}" class="btn btn-danger">Delete</a> </td>
+            </tr>
             @endforeach
         </tbody>
     

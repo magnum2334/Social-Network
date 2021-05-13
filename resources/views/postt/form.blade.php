@@ -12,7 +12,7 @@
 
             <div class=" form-group my-3">
                 <label class="form-label">{{ __('Contents')}}</label>
-                <textarea cols="80" rows="5" name="Contents" placeholder="{{ __('ContentPlaceholder')}}" class="rounded-lg form-control @error('Contenido') is-invalid @enderror " required >{{old('Contents', $post->Contents)}}</textarea>
+                <textarea cols="80" rows="5" name="Contents" placeholder="{{ __('Escribe aqui tu publicacion...')}}" class="rounded-lg form-control @error('Contenido') is-invalid @enderror " required >{{old('Contents', $post->Contents)}}</textarea>
                  @error('Contenido')
                <div class="alert alert-danger">{{ $message }} </div>
                  @enderror

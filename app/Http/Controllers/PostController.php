@@ -36,11 +36,11 @@ class PostController extends Controller
         'Titulo' => 'required',
         'Contents' => 'required'
         ]);
-        
+
         $post = new Post($request->all());
         $fecha=date('Y-m-d');
         $post->fecha=$fecha;
-        $post->user_id= \Auth::id();
+        $post->user_id=\Auth::id();
         
         if($post->save()){
             
@@ -50,16 +50,50 @@ class PostController extends Controller
       /*
      *   create function:show edit form
      * edit with the post id
-     *   @return view
+     *   @return view edir
      */
      public function edit($post_id){
 
         $post = Post::find($post_id);
-
-        return View('postt.edit',compact('post'));
+       
+        if(\Auth::user()->id==$post->user_id){
+            return View('postt.edit',compact('post'));
+         }else{
+             return redirect('/postt');
+            
+        }
+       
 
     }
-    public  function update(){
+     /*
+      *   update function
+      *   @return view post
+      */
+    public function update(Request $request, $post_id){   
+       
+        $request->validate([
+          
+            'Titulo' => 'required',
+            'Contents' => 'required'
+        ]);
+ 
+         $post=  Post::find($post_id); 
+         $fecha = date('Y-m-d');
+         $post->fecha=$fecha;
+         $post->user_id= \Auth::id();
         
-    }
+         if(\Auth::user()->id==$post->user_id){
+            
+         }
+
+        if($post->update($request->all())){
+         return redirect('/postt');
+            }else{
+                return "algo salio mal";
+        }
+
+        }
+        public function destroy($post_id){
+      
+        }
 }
