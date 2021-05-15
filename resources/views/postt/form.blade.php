@@ -7,7 +7,7 @@
 
             <div class="form-group"> 
                 <label class="form-label">{{ __('title')}}</label>
-                <input type="text-area" name="Titulo" required class="form-control " placeholder="{{ __('Titulo')}}"  value="{{old('titulo', $post->Titulo)}}">
+                <input type="text-area" name="Titulo" required @error('Titulo') is-invalid @enderror  class="form-control rounded-lg" placeholder="{{ __('Titulo')}}"  value="{{old('titulo', $post->Titulo)}}">
             </div>
 
             <div class=" form-group my-3">
@@ -15,6 +15,11 @@
                 <textarea cols="80" rows="5" name="Contents" placeholder="{{ __('Escribe aqui tu publicacion...')}}" class="rounded-lg form-control @error('Contenido') is-invalid @enderror " required >{{old('Contents', $post->Contents)}}</textarea>
                  @error('Contenido')
                <div class="alert alert-danger">{{ $message }} </div>
+                 @enderror
+
+                 @error('titulo')
+                 <div class="alert alert-danger">{{ $message }} </div>
+                 
                  @enderror
         
             </div>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
-
+use App\Models\User;
 class PostController extends Controller
 {
     /*
@@ -60,7 +60,7 @@ class PostController extends Controller
             return View('postt.edit',compact('post'));
          }else{
              return redirect('/postt');
-            
+             
         }
        
 
@@ -70,8 +70,10 @@ class PostController extends Controller
       *   @return view post
       */
     public function update(Request $request, $post_id){   
-       
-        $request->validate([
+        
+        
+            
+            $request->validate([
           
             'Titulo' => 'required',
             'Contents' => 'required'
@@ -82,18 +84,20 @@ class PostController extends Controller
          $post->fecha=$fecha;
          $post->user_id= \Auth::id();
         
-         if(\Auth::user()->id==$post->user_id){
+         if(\Auth::user()->post_id==$post->user_id){
             
          }
-
         if($post->update($request->all())){
-         return redirect('/postt');
-            }else{
-                return "algo salio mal";
+            return redirect('/postt');
+               }else{
+                   return "algo salio mal";
+           }  
         }
-
-        }
-        public function destroy($post_id){
-      
+        
+        public function Profile($user_id){
+            
+            $userpost = User::find($user_id); 
+            return View('postt.profile',compact('userpost'));
+            
         }
 }

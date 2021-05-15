@@ -22,6 +22,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+
 require __DIR__.'/auth.php';
 
 //------------------------------------------
@@ -34,6 +35,5 @@ require __DIR__.'/auth.php';
  Route::put('/postt/edit/{post_id}', [PostController::class, 'update']);
  Route::delete('/postt {post_id}', [PostController::class, 'destroy']);
 
- 
-//------------------------------------------
 //---Profile----------
+Route::get('/postt/profile/{User_id}', [PostController::class, 'profile']);
