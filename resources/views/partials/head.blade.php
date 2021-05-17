@@ -11,6 +11,8 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         
-        <!-- Scripts -->
+        <!-- stweetalert2 -->
+        <link rel="stylesheet" href="sweetalert2.min.css">
+        
        
         

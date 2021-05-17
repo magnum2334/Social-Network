@@ -1,6 +1,7 @@
 { 
  "Dashboard" : "Tablero",
    "title" :"Titulo",
+   "Edit":"Editar",
    "Contents" : "Contenido",
    "ContentPlaceholder" :  "Escribe aqui tu publicacion...",
    "Posts" : "Publicaciones",

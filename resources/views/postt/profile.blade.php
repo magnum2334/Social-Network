@@ -2,24 +2,18 @@
 @section('content')
 
 <div class="container">
-   <div class="row">
-    @foreach ($userpost->posts as $post)
-      <div class="col-md-3 mt-2 text-center">
-        <div class="card">
-            <div class="card-body">
-                <div class="">{{ $post->user->name}}</div>
-                <h5 class="card-header"> {{$post->Titulo}}</h5>
-                <p class="card-text"> {{$post->Contents}}</p>
-                <div class="card-footer">{{$post->Fecha}} <cite title="Source Title"> </cite> </div>
-            </div>
-        </div> 
-      </div>
-    @endforeach
-   </div>
-   
-        
-    
-    
+    <div class="row">
+        @foreach ($userpost->posts as $post)
+            <div class="col-md-3 mt-2 text-center">
+                <div class="card border border-4 shadow">
+                    <div class="card-title py-2"><cite title="Source Title">{{ $post->user->name}} </cite></div>
+                    <h5 class="card-header">{{$post->titulo}}</h5>
+                    <p class="card-body">{{$post->contents}}</p>
+                    <div class="card-footer text-decoration-underline"><cite title="Source Title">{{$post->fecha}} </cite></div>
+                </div>
+            </div>     
+        @endforeach
+      
+   </div>   
 </div>
-
 @endsection
