@@ -15,6 +15,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+   
+
     
     /**
      * The attributes that are mass assignable.
@@ -22,6 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+
         'name',
         'email',
         'password',

@@ -4,9 +4,50 @@
     <head>
        @include('partials.head')
        @include('partials.jsfiles')
+
     </head>
     
     <body class="font-sans antialiased">
+        @if (Session::has('error'))
+            <script type="text/javascript">  
+                swal({
+                    icon: 'error',
+                    title:'Error paso algo',
+                    text:"{{Session::get('error')}}",
+                    type:'error'
+                }).then((value) => {
+                location.reload();
+                }).catch(swal.noop);
+
+            </script>
+        @endif
+
+        @if (Session::has('postExitoso'))
+            <script type="text/javascript">  
+                swal({
+                    icon: 'success',
+                    title:'post publicado',
+                    text:"{{Session::get('postExitoso')}}",
+                    type:'success'
+                }).then((value) => {
+                location.reload();
+                }).catch(swal.noop);
+            </script>
+        @endif
+
+        @if (Session::has('editado'))
+            <script type="text/javascript">  
+                swal({
+                    icon: 'success',
+                    title:'Post Editado Con Exito',
+                    text:"{{Session::get('editado')}}",
+                    type:'success'
+                }).then((value) => {
+                location.reload();
+                }).catch(swal.noop);
+            </script>
+        @endif
+    
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 

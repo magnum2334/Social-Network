@@ -32088,10 +32088,21 @@ select {
   --tw-backdrop-sepia: sepia(100%);
 }
 
+.dd{
+  border-radius: 10px;
+  background: linear-gradient(180deg, #ffd4dd, #ffdae2, #ffe0e7, #ffe6eb, #ffedf0, #fff3f5, #fff9fa, #ffffff);
+}
+
 /* C */
 
 .card{
   border-radius: 40px;
+}
+
+.imagenRedonda{
+  width:60px;
+  height:60px;
+  border-radius:150px;
 }
 
 /* F */
@@ -32102,7 +32113,68 @@ select {
   right:55px;
 }
 
-/* I */
+/* i */
+
+.imgRedonda {
+  width:125px;
+  height:125px;
+  border-radius:150px;
+}
+
+/* S */
+
+.swal-button {
+  padding: 7px 19px;
+  border-radius: 10px;
+  background-color: #0860b3;
+  font-size: 18px;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+  width :100px;
+  height :40px;
+}
+
+.swal-modal {
+  background-color: white;
+  border-radius:20px;
+  border: 3px solid grey;
+}
+
+.swal-overlay {
+  background-color: rgba(0, 157, 255, 0.21);
+}
+
+.swal-text {
+  background-color: #80c3ed;
+  padding: 17px;
+  border: 1px solid #2b2b2b;
+  display: block;
+  margin: 22px;
+  text-align: center;
+  color: #61534e;
+  font-size:22px;
+}
+
+.swal-footer {
+  text-align:center;
+  padding-top: 13px;
+  margin-top: 13px;
+  padding: 13px 16px;
+  border-radius: inherit;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.fondo{
+  top: 150%;
+  background:url(/storage/app/public/landing-page.png);
+  width: auto ;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* mediaqueri*/
 
 @media (min-width: 640px) {
   .sm\:container {
