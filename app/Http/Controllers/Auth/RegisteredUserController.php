@@ -34,12 +34,13 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
+            'tweetuser'=>'required|string|max:55|unique:users,user_tweet',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|confirmed|min:8',
         ]);
-
         $user = User::create([
             'name' => $request->name,
+            'user_tweet'=>$request->tweetuser,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);

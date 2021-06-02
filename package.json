@@ -25,6 +25,8 @@
         "tailwindcss": "^2.0.2"
     },
     "dependencies": {
+        "font-awesome": "^4.7.0",
+        "hover.css": "^2.3.2",
         "jquery": "^3.6.0"
     }
 }

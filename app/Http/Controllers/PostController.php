@@ -17,7 +17,7 @@ class PostController extends Controller
     *   @return view
     */
     public function index(){
-        $posts = Post::orderBy('fecha','desc')->paginate(9);
+        $posts = Post::orderBy('fecha','desc')->paginate(7);
             return View ('postt.index',compact('posts'));
     }
   /*
@@ -77,8 +77,6 @@ class PostController extends Controller
       *   @return view post
       */
     public function update(Request $request, $post_id){   
-        
-        
             $request->validate([
             'titulo' => 'required',
             'contents' => 'required'
@@ -97,19 +95,24 @@ class PostController extends Controller
             return "algo salio mal";
            }  
         }
-    
+    public function show($post_id){
+        $showpost = Post::findOrFail($post_id);
+        return View('postt.show',compact('showpost')); 
+    }
         /*
      *   create function:from profile
  
      *   @return view
      */
         public function Profile($user_id){
-            $userpost = User::find($user_id);    
-	        $twitterapi=\Twitter::getUserTimeline(['screen_name' => 'thujohn', 'count' => 20, 'response_format' => 'json']);
-            $twitterapi= json_decode($twitterapi);
-            
+            $userpost = User::findOrFail($user_id); 
+           if(\Auth::user()->id==null){
+            $twitterapi=\Twitter::getUserTimeline(['screen_name' => 'Cristiano', 'count' => 20, 'response_format' => 'json']);
+           }else{
+            $twitterapi=\Twitter::getUserTimeline(['screen_name' => $userpost->user_tweet, 'count' => 20, 'response_format' => 'json']);
+           }
+           $twitterapi= json_decode($twitterapi);
             return View('postt.profile',compact('userpost','twitterapi')); 
-
         }
       
 }

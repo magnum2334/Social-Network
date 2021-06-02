@@ -19,8 +19,12 @@
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             </div>
 
-             <!-- tweet user_name -->
-             
+            <!-- tweetuser_name -->
+            <div>
+                <x-label for="tweetuser" :value="__('tweetuser')" />
+
+                <x-input id="tweetuser" class="block mt-1 w-full" type="text" name="tweetuser" :value="old('tweetuser')" required autofocus />
+            </div>
             <!-- Email Address -->
             <div class="mt-4">
                 <x-label for="email" :value="__('Email')" />
