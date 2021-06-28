@@ -7,18 +7,27 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\HideTweet;
 use Illuminate\Http\JsonResponse;
 
 
 class PostController extends Controller
 {
+     /*
+    *   index construct
+    *   @return auth
+    */
+    public function __construct(){
+        $this->middleware('auth');
+    }
     /*
     *   index function
     *   @return view
     */
     public function index(){
         $posts = Post::orderBy('fecha','desc')->paginate(7);
-            return View ('postt.index',compact('posts'));
+        $user = \Auth::user()->id;
+            return View ('postt.index',compact('posts','user'));
     }
   /*
      *   create function:show create form
@@ -29,7 +38,7 @@ class PostController extends Controller
      public function create(){
         if(\Auth::check()){
             $post = new Post();
-                return View('postt.create',compact('post'));
+            return View('postt.create',compact('post'));
         }
      }
       /*
@@ -95,6 +104,12 @@ class PostController extends Controller
             return "algo salio mal";
            }  
         }
+        
+        /*
+     *   create function:from show
+ 
+     *   @return view
+     */
     public function show($post_id){
         $showpost = Post::findOrFail($post_id);
         return View('postt.show',compact('showpost')); 
@@ -110,9 +125,21 @@ class PostController extends Controller
             $twitterapi=\Twitter::getUserTimeline(['screen_name' => 'Cristiano', 'count' => 20, 'response_format' => 'json']);
            }else{
             $twitterapi=\Twitter::getUserTimeline(['screen_name' => $userpost->user_tweet, 'count' => 20, 'response_format' => 'json']);
-           }
-           $twitterapi= json_decode($twitterapi);
-            return View('postt.profile',compact('userpost','twitterapi')); 
+           }   
+            $twitterapi= json_decode($twitterapi);
+            $hidetweet=$userpost->hidetweets;
+            return View('postt.profile',compact('userpost','twitterapi','user_id','hidetweet')); 
         }
-      
+
+        public function hidetweet($tweet_id){
+               HideTweet::create([
+                    'tweet_id' => $tweet_id,
+                    'user_id' => \Auth::user()->id
+                ]);
+                return response('ok',200);
+        }
+        public function destroy($tweet_id){
+            HideTweet::destroy($tweet_id);
+        }
+        
 }

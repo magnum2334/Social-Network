@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-
+use App\Http\Controllers\HideTweet;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,5 +37,7 @@ require __DIR__.'/auth.php';
  Route::get('/postt/show/{post_id}',[PostController::class, 'show']);
 //---Profile----------
 Route::get('/postt/profile/{User_id}', [PostController::class, 'profile']);
-//---landing-page---------
-
+//---hidetweet---------
+Route::post('/postt/profile/{tweet_id}', [PostController::class, 'hidetweet']);
+//---unhide---------
+Route::delete('/postt/profile/{tweet_id}', [PostController::class, 'destroy']);

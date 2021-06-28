@@ -5,14 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class HideTweet extends Model
 {
-    protected $fillable=['user_id','titulo','contents','fecha'];
+    protected $fillable = ['tweet_id','user_id'];
     use HasFactory;
-
-    public function user(){
+    public function usertweet()
+    {
         return $this->belongsTo(User::class);
     }
-    
 }
-

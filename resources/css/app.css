@@ -18,10 +18,18 @@
   border-top-left-radius: 35px;
   background-color: rgb(116, 188, 221);
 }
+.card-show{
+  border-top-right-radius: 35px;
+  border-top-left-radius: 35px;
+  background-color: rgb(17, 134, 163);
+}
 .card{
     border-radius: 40px;
 }  
-
+.cardbase-show{
+  border-radius: 40px;
+  height:250px;
+}  
 .imagenRedonda{
     width:60px;
     height:60px;
@@ -30,7 +38,7 @@
 /* F */
 .floating{
     position: fixed;
-    bottom: 30px;
+    bottom: 350px;
     right:55px;  
 }
 /* i */
@@ -39,7 +47,12 @@
     height:125px;
     border-radius:150px;
 }
-
+/* profile */
+.profile{
+  position:fixed;
+  left:20px;
+  bottom: 350px;
+}
 /* s */
 
 
@@ -99,7 +112,7 @@
 #sidebar {
     position:absolute;
     top:0px;
-    left:-465px;
+    left:-475px;
     width:475px;
     height:auto;
     transition:all 500ms linear;
@@ -110,7 +123,7 @@
   }
   #sidebar .toggle-btn {
     position:absolute;
-    left:420px;
+    left:425px;
     top:140px;
     padding-left:42px;
   }
@@ -179,9 +192,89 @@
     color:white;
   }
 
-/* welcome */
-
-
+/* mediaquery@ */
+@media(max-width: 764px){
+  #sidebar {
+    position:absolute;
+    top:0px;
+    left:-265px;
+    width:265px;
+    height:auto;
+    transition:all 500ms linear;
+    
+  }
+  #sidebar .toggle-btn {
+    position:fixed;
+    left:260px;
+    top:140px;
+    padding-left:2px;
+    margin-bottom:50px;
+  }
+  .s a{
+    display: inline-block;
+    font-size: 30px;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    color:#00ffff;
+    margin: 0 16px;
+    transition: .4s linear;
+    position: relative;
+  }
+  .profile{
+    position:fixed;
+    bottom: 81px;
+    right: 10px;
+  }
+  .floating{
+    position: fixed;
+    bottom: 81px;
+    right:10px
+}
+}
+@media(max-width: 344px){
+  #sidebar {
+    position:absolute;
+    top:0px;
+    left:-230px;
+    width:230px;
+    height:auto;
+    transition:all 500ms linear;
+    
+  }
+  #sidebar .toggle-btn {
+    position:fixed;
+    left:200px;
+    top:140px;
+    padding-left:2px;
+    margin-bottom:50px;
+  }
+  .s a{
+    display: inline-block;
+    font-size: 30px;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    color:#00ffff;
+    margin: 0 16px;
+    transition: .4s linear;
+    position: relative;
+  }
+  .floating{
+    position: fixed;
+    bottom: 30px;
+    right:10px
+}
+}
+@media(max-width: 300px){
+  .profile{
+    position:fixed;
+    bottom: 81px;
+    right: 10px;
+  }
+}
   
 
    

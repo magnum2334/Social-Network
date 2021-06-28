@@ -3798,6 +3798,9 @@ module.exports = {
   \*****************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
+    axios = _require["default"];
+
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
@@ -3806,6 +3809,19 @@ window.Swal = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2
 $(document).ready(function () {
   $('.toggle-btn').click(function () {
     $('#sidebar').toggleClass('active');
+  });
+  $('.hidetweet').click(function () {
+    axios.post($(this).data('href')).then(function (response) {
+      console.log(response);
+      swal({
+        icon: 'success',
+        title: 'tweet oculto',
+        text: "sea ocultado con exito",
+        type: 'success'
+      }).then(function (value) {
+        location.reload();
+      })["catch"](swal.noop);
+    });
   });
 });
 

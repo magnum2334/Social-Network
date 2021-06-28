@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterTableUsers extends Migration
+class AddForeignkeyHidetweet extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class AlterTableUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('user_tweet')->nullable()->unique(); 
-           
-            
+        Schema::table('hide_tweets', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id')->change();
+            $table->foreign('user_id')->references('id')->on('users'); 
         });
     }
 

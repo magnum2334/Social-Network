@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterTableUsers extends Migration
+class CreateHideTweetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class AlterTableUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('user_tweet')->nullable()->unique(); 
-           
-            
+        Schema::create('hide_tweets', function (Blueprint $table) {
+            $table->id();
+            $table->string('tweet_id');
+            $table->unsignedBigInteger('user_id');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +28,6 @@ class AlterTableUsers extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('hide_tweets');
     }
 }
