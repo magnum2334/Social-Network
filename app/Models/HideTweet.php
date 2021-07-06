@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class HideTweet extends Model
 {
-    protected $fillable = ['tweet_id','user_id'];
     use HasFactory;
+    protected $fillable = ['tweet_id','user_id'];
+    
     public function usertweet()
     {
         return $this->belongsTo(User::class);

@@ -138,8 +138,15 @@ class PostController extends Controller
                 ]);
                 return response('ok',200);
         }
-        public function destroy($tweet_id){
-            HideTweet::destroy($tweet_id);
+        public function destroy($hidetweet_id)
+        {
+
+            $destroyhidentweet=HideTweet::findOrFail($hidetweet_id);
+            if(isset($destroyhidentweet)){
+            $destroyhidentweet->delete();
+            Session::flash('borrado', 'desoculto con exito');
+            return redirect()->back();
+            }
         }
         
 }

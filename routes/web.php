@@ -40,4 +40,4 @@ Route::get('/postt/profile/{User_id}', [PostController::class, 'profile']);
 //---hidetweet---------
 Route::post('/postt/profile/{tweet_id}', [PostController::class, 'hidetweet']);
 //---unhide---------
-Route::delete('/postt/profile/{tweet_id}', [PostController::class, 'destroy']);
+Route::delete('/postt/profile/{hidetweet_id}', [PostController::class, 'destroy']);

@@ -32339,6 +32339,12 @@ cite a:hover{
     bottom: 81px;
     right:10px
   }
+
+  .posttreturn {
+    position: fixed;
+    bottom: 50px;
+    right:2px
+  }
 }
 
 @media(max-width: 344px){

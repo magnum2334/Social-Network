@@ -30,24 +30,38 @@
                     text:"{{Session::get('postExitoso')}}",
                     type:'success'
                 }).then((value) => {
-                location.reload();
+                    location.reload();
                 }).catch(swal.noop);
             </script>
         @endif
-
         @if (Session::has('editado'))
             <script type="text/javascript">  
                 swal({
                     icon: 'success',
-                    title:'Post Editado Con Exito',
+                    title:'post publicado',
                     text:"{{Session::get('editado')}}",
                     type:'success'
                 }).then((value) => {
-                location.reload();
+                    location.reload();
                 }).catch(swal.noop);
             </script>
         @endif
+        @if (Session::has('borrado'))
+        <script type="text/javascript">  
+            swal({
+                icon: 'success',
+                title:'tweet desoculto',
+                text:"{{Session::get('borrado')}}",
+                type:'success'
+            }).then((value) => {
+                location.reload();
+            }).catch(swal.noop);
+        </script>
+    @endif
+
         
+        
+       
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 

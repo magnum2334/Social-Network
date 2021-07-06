@@ -12,9 +12,9 @@
 
                        <div>  
                         @if($post->user_id==Auth::user()->id)
-                        <a href="{{url('/postt/edit/' . $post->id)}}" class="btn btn-dark rounded-circle fs-4"  title="Editar"><i class="text-center far fa-edit"></i></a>
+                        <a href="{{url('/postt/edit/' . $post->id)}}" class="btn btn-dark rounded-circle fs-4"  title=" puede Editar  su post {{$post->user->name}}"><i class="text-center far fa-edit"></i></a>
                         @endif
-                        <a href="{{url('/postt/show/' . $post->id)}}" class="btn btn-primary rounded-circle fs-4"  title="Ver Post"><i class="text-center fas fa-eye"></i></a>
+                        <a href="{{url('/postt/show/' . $post->id)}}" class="btn btn-primary rounded-circle fs-4"  title=" puede ver el post de {{$post->user->name}}"><i class="text-center fas fa-eye"></i></a>
                        </div>
                     </div>
                 </div>
@@ -26,20 +26,21 @@
        <div > {{ $posts->links() }} </div> 
     </div> 
 </div>
+
 <div class="profile">
     @php $profile=Auth::user()->id; @endphp
-    <a href="{{url('/postt/profile/' . $profile)}}" class="btn  btn-lg btn-outline-success btn-fab "  title="profile">
+    <a href="{{url('/postt/profile/' . $profile)}}" class="btn  btn-lg btn-outline-success btn-fab "  title="profile de {{Auth::user()->name}}">
         <div class="d-flex w-100 align-items-center justify-content-around">
            <i class="material-icons pr-3" >profile</i>
            <i class="far fa-user"></i>
         </div>
    </a>
 </div>
+
 <div class="floating">
     <a href="{{url('/postt/create') }}" class="btn btn-outline-dark btn-fab btn-lg" id ="btn-post" title="Agregar nuevo post">
          <div class="d-flex w-100 align-items-center justify-content-around">
-            <i class="material-icons pr-3"
-            >Publicar</i>
+            <i class="material-icons pr-3">Publicar</i>
             <i class="fas fa-plus-circle"></i>
          </div>
     </a>
