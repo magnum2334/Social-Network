@@ -26,8 +26,8 @@ class PostController extends Controller
     */
     public function index(){
         $posts = Post::orderBy('fecha','desc')->paginate(7);
-        $user = \Auth::user()->id;
-            return View ('postt.index',compact('posts','user'));
+        
+            return View ('postt.index',compact('posts'));
     }
   /*
      *   create function:show create form
@@ -86,9 +86,9 @@ class PostController extends Controller
       *   @return view post
       */
     public function update(Request $request, $post_id){   
-            $request->validate([
-            'titulo' => 'required',
-            'contents' => 'required'
+        $request->validate([
+        'titulo' => 'required',
+        'contents' => 'required'
         ]);
  
          $post= Post::find($post_id); 
@@ -121,10 +121,11 @@ class PostController extends Controller
      */
         public function Profile($user_id){
             $userpost = User::findOrFail($user_id); 
-           if(\Auth::user()->id==null){
+           
+            if(\Auth::user()->id==null){
             $twitterapi=\Twitter::getUserTimeline(['screen_name' => 'Cristiano', 'count' => 20, 'response_format' => 'json']);
-           }else{
-            $twitterapi=\Twitter::getUserTimeline(['screen_name' => $userpost->user_tweet, 'count' => 20, 'response_format' => 'json']);
+            }else{
+              $twitterapi=\Twitter::getUserTimeline(['screen_name' => $userpost->user_tweet, 'count' => 20, 'response_format' => 'json']);
            }   
             $twitterapi= json_decode($twitterapi);
             $hidetweet=$userpost->hidetweets;
@@ -132,7 +133,7 @@ class PostController extends Controller
         }
 
         public function hidetweet($tweet_id){
-               HideTweet::create([
+                HideTweet::create([
                     'tweet_id' => $tweet_id,
                     'user_id' => \Auth::user()->id
                 ]);
@@ -140,11 +141,10 @@ class PostController extends Controller
         }
         public function destroy($hidetweet_id)
         {
-
             $destroyhidentweet=HideTweet::findOrFail($hidetweet_id);
             if(isset($destroyhidentweet)){
             $destroyhidentweet->delete();
-            Session::flash('borrado', 'desoculto con exito');
+            Session::flash('borrado','desocultaste tu tweet con exito');
             return redirect()->back();
             }
         }

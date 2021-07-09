@@ -43,10 +43,11 @@
                         <form method="POST" action="{{url('/postt/profile/'. $hidetweet->id)}}">
                            @csrf
                            @method('DELETE')
-                            <button type="submit"> 
-                                desocultar
+                            <button type="submit" id="unhidetweet"> 
+                                 desocultar
                             </button>
                         </form> 
+                    
                     </div> 
                     <small>{{$tweet->text}}</small> <br>
                     <div class="d-flex w-100 align-items-center justify-content-between">

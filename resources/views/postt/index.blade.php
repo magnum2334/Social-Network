@@ -6,7 +6,7 @@
         <div class=" col-12 col-md-9 my-4 "> 
             <div class="card-index shadow fs-6 ">
                 <div class="card-profile-index text-light py-2">
-                   <div class="card-title text-center"><cite title="Source Title "><a class="fs-3" href="{{url('/postt/profile/'. $post->user_id)}}">{{$post->user->name}}</a></cite></div>
+                   <div class="card-title text-center"><cite title=" Perfil de {{$post->user->name}} "><a class="fs-3" href="{{url('/postt/profile/'. $post->user_id)}}">{{$post->user->name}}</a></cite></div>
                     <div class=" d-flex w-100 align-items-center justify-content-around  ">
                         <cite title="Source Title ">{{$post->fecha}} </cite>
 

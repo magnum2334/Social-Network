@@ -57,7 +57,7 @@
                 location.reload();
             }).catch(swal.noop);
         </script>
-    @endif
+        @endif
 
         
         

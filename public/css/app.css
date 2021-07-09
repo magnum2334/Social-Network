@@ -32295,6 +32295,15 @@ cite a:hover{
   color:white;
 }
 
+#unhidetweet{
+  text-decoration: underline;
+}
+
+#unhidetweet :hover{
+  background-color: rgba(3, 169, 244, 0.7) ;
+  color:blue;
+}
+
 /* mediaquery@ */
 
 @media(max-width: 764px){

@@ -5,17 +5,13 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('postt') }}">
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class=" space-x-8 sm:-my-px sm:ml-10 sm:flex my-3 ">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Inicio') }}
-                    </x-nav-link>
-                </div>
+                
 
                 <div class=" space-x-8 sm:-my-px sm:ml-10 sm:flex my-3">
                     <x-nav-link :href="route('postt')" :active="request()->routeIs('postt')">
